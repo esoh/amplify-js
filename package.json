@@ -4,7 +4,7 @@
 	"version": "0.1.30",
 	"description": "",
 	"scripts": {
-		"setup-dev": "yarn && yarn bootstrap && yarn link-all && yarn build",
+		"setup-dev": "NODE_GYP_FORCE_PYTHON='/Users/fitzpo/.pyenv/versions/3.8.17/bin/python3.8' yarn && yarn bootstrap && yarn link-all && yarn build",
 		"setup-dev:react-native": "node ./scripts/setup-dev-rn",
 		"bootstrap": "lerna bootstrap",
 		"test": "lerna run test --stream",
@@ -97,7 +97,6 @@
 		"wml": "0.0.83"
 	},
 	"resolutions": {
-		"@babel/types": "7.12.10",
 		"@types/babel__traverse": "7.0.8",
 		"@types/react": "16.9.10",
 		"terser": "4.6.7",

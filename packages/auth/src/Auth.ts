@@ -1620,6 +1620,14 @@ export class AuthClass {
 					);
 				}
 				logger.debug('The user is not authenticated by the error', e);
+				// FTZ begin
+				// comes from Auth.currentUserPoolUser at user.getSession
+				// which comes from
+				// node_modules/amazon-cognito-identity-js/CognitoUser.refreshSession
+				if (e.code === 'NetworkError') {
+					return Promise.reject(new Error('Network error'));
+				}
+				// FTZ end
 				return Promise.reject('The user is not authenticated');
 			}
 			this.user = user;
